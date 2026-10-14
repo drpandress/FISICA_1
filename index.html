@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Unidad 1 | Campo eléctrico</title><link rel="stylesheet" href="static/style.css"></head>
+<body><header><h1>Simulador de Física · Unidad 1</h1><p>Electricidad, campo eléctrico y potencial eléctrico</p></header>
+<div class="shell"><nav><div class="label">UNIDAD 1</div>
+<button class="active" data-module="cargas">⚡ Cargas y campo</button><button data-module="potencial">∑ Calculadora de potencial</button><button data-module="trayectoria">➤ Trayectoria de partícula</button>
+</nav><main><div class="intro"><div><h2 id="pageTitle">Visualizador de cargas puntuales</h2><p id="pageDesc">Agrega cargas y observa una representación del campo eléctrico.</p></div><span class="pill">Interactivo</span></div>
+<section class="module active" id="cargas"><div class="layout"><div class="card"><h3>Configuración de cargas</h3>
+<div class="field"><label for="q1">Carga 1 (μC)</label><input id="q1" type="number" value="2" step="0.5"></div><div class="field"><label for="q2">Carga 2 (μC)</label><input id="q2" type="number" value="-2" step="0.5"></div>
+<div class="field"><label for="separacion">Separación (m)</label><input id="separacion" type="number" value="2" min="0.5" max="8" step="0.5"></div>
+<div class="field"><label for="lineas">Líneas de campo</label><input id="lineas" type="range" min="6" max="24" value="14"></div>
+<div class="actions"><button class="primary" id="drawField">Actualizar simulación</button><button class="secondary" id="resetField">Restablecer</button></div>
+<div class="result" id="fieldInfo">Las líneas ilustran la dirección del campo eléctrico.</div><p class="small">Modelo visual educativo 2D; las líneas son una aproximación ilustrativa, no un cálculo numérico de cada trayectoria.</p></div>
+<div class="card"><h3>Vista del campo eléctrico</h3><canvas id="fieldCanvas" width="800" height="480"></canvas><p class="small">Rojo: carga positiva · Azul: carga negativa. Las flechas indican la dirección del campo.</p></div></div></section>
+<section class="module" id="potencial"><div class="layout"><div class="card"><h3>Potencial eléctrico en un punto</h3>
+<div class="field"><label for="pQ1">Carga 1 (μC)</label><input id="pQ1" type="number" value="2" step="0.5"></div><div class="field"><label for="r1">Distancia a carga 1 (m)</label><input id="r1" type="number" value="0.5" min="0.01" step="0.1"></div>
+<div class="field"><label for="pQ2">Carga 2 (μC)</label><input id="pQ2" type="number" value="-1" step="0.5"></div><div class="field"><label for="r2">Distancia a carga 2 (m)</label><input id="r2" type="number" value="1" min="0.01" step="0.1"></div>
+<button class="primary" id="calcPotential">Calcular potencial</button><div class="result" id="potentialResult">Ingresa las cargas y distancias para calcular el potencial.</div></div>
+<div class="card"><h3>Fórmula utilizada</h3><p>El potencial total es la suma escalar de los potenciales de cada carga:</p><div class="result"><strong>V = k · Σ(qᵢ / rᵢ)</strong><br>k = 8.99 × 10⁹ N·m²/C²</div><p class="small">Las cargas se convierten de microcoulomb (μC) a coulomb (C). El resultado se expresa en voltios (V).</p></div></div></section>
+<section class="module" id="trayectoria"><div class="layout"><div class="card"><h3>Partícula en un campo eléctrico uniforme</h3>
+<div class="field"><label for="charge">Carga de la partícula (μC)</label><input id="charge" type="number" value="1" step="0.5"></div><div class="field"><label for="mass">Masa (g)</label><input id="mass" type="number" value="1" min="0.1" step="0.1"></div>
+<div class="field"><label for="electric">Campo eléctrico (N/C)</label><input id="electric" type="number" value="100" step="10"></div><div class="field"><label for="velocity">Velocidad inicial horizontal (m/s)</label><input id="velocity" type="number" value="3" min="0.1" step="0.5"></div>
+<button class="primary" id="drawTrajectory">Calcular trayectoria</button><div class="result" id="trajectoryInfo">Se calcula una trayectoria ideal bajo aceleración eléctrica constante.</div></div>
+<div class="card"><h3>Trayectoria calculada</h3><canvas id="trajectoryCanvas" width="800" height="480"></canvas><p class="small">Se usa la aproximación clásica: a = qE/m, x = v₀t y y = ½at². No se consideran rozamiento ni efectos relativistas.</p></div></div></section>
+<div class="footer">Simulador educativo · Ejecuta index.html en Visual Studio Code o Visual Studio.</div></main></div><script src="static/app.js"></script></body></html>
